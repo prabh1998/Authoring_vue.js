@@ -18,7 +18,9 @@ var vm = new Vue({
       { name: "Stranger Things", thumb: "strangerthings.jpg", vidsource: "strangerthings.mp4", description: "don't get lost in the upside down" },
       { name: "Marvel's The Avengers", thumb: "avengers.jpg", vidsource: "avengers.mp4", description: "will they make black widow action figures this time?" }
     ],
-
+    videotitle: "video title goes here",
+    vidsource:"",
+    videodescription: "video description here",
     showDetails: false
   },
 
@@ -37,8 +39,15 @@ var vm = new Vue({
       this.user.isLoggedIn =(this.user.isLoggedIn) ? false:true;
     },
 
-    showMovieDetails(movie){
-      console.log('show these details',movie);
+    showMovieDetails({name, vidsource, description}){
+      //console.log('show these details',movie);
+
+      this.videotitle = name;
+      this.vidsource = vidsource;
+      this.videodescription = description;
+      
+      //this the movie details show up
+      this.showDetails = true;
     }
   }
 });
